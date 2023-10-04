@@ -11,6 +11,6 @@ m = 29
 is_quadratic_residue = euler_criterion(x_value, m)
 
 if is_quadratic_residue:
-    print(f"{x_value} là quadratic residue modulo {m}.")
+    print(f"{x_value} is quadratic residue modulo {m}.")
 else:
-    print(f"{x_value} không phải là quadratic residue modulo {m}.")
+    print(f"{x_value} is not quadratic residue modulo {m}.")
