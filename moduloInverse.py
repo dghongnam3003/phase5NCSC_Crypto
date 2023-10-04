@@ -16,8 +16,8 @@ def modInverse(A, M):
 
 # Driver Code
 if __name__ == "__main__":
-	A = 3
-	M = 13
+	A = 21
+	M = 5
 
 	# Function call
 	print(modInverse(A, M))
