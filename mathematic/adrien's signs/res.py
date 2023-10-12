@@ -17,7 +17,7 @@ for i in output:
     else:
         plaintext += '0'
         
-print(plaintext)
+# print(plaintext)
 
 res = ''
 for i in range (0, len(plaintext), 8):
