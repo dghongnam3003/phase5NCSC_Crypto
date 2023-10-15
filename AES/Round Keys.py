@@ -14,12 +14,21 @@ round_key = [
 
 
 def add_round_key(s, k):
-    res = ''
+    res = []
     for i in range(4):
         for j in range(4):
-            res += chr(s[i][j]^k[i][j])
-    return res
+            res.append(s[i][j]^k[i][j])
+    return [res[4*i:4*(i+1)] for i in range(len(res)//4)]
+
+def matrix2bytes(matrix):
+    """ Converts a 4x4 matrix into a 16-byte array.  """
+    text = ''
+    for i in range(len(matrix)):
+        for j in range(4):
+            text += chr(matrix[i][j])
+    return text
 
 
 print(add_round_key(state, round_key))
+print(matrix2bytes(add_round_key(state, round_key)))
 
