@@ -42,21 +42,16 @@ def inv_mix_columns(s):
     mix_columns(s)
 
 
-state = [
-    [108, 106, 71, 86],
-    [96, 62, 38, 72],
-    [42, 184, 92, 209],
-    [94, 79, 8, 54],
-]
+state = [[216, 44, 31, 121], [211, 3, 255, 45], [206, 219, 165, 236], [7, 217, 76, 53]]
 
-inv_mix_columns(state)
+# inv_mix_columns(state)
 inv_shift_rows(state)
 
-res = ''
-for i in range(4):
-    for j in range(4):
-        res += chr(state[i][j])
+# res = ''
+# for i in range(4):
+#     for j in range(4):
+#         res += chr(state[i][j])
 
 print(state)
-print(res)
+# print(res)
 

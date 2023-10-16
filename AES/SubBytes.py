@@ -66,5 +66,5 @@ def matrix2bytes(matrix):
             text += chr(matrix[i][j])
     return text
 
-print(matrix2bytes(sub_bytes(state, sbox=inv_s_box)))
+print(sub_bytes(state, sbox=inv_s_box))
 

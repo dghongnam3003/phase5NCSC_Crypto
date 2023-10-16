@@ -30,6 +30,6 @@ word = list(mtr[-1])
 
 word.append(word.pop(0))
 
-print(len(text))
+print(mtr)
 
 

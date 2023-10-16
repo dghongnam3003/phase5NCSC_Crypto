@@ -148,6 +148,9 @@ def expand_key(master_key):
 
 # print(expand_key(key))
 
+def bytes2matrix_key(key):
+    return [list(k[:len(k)]) for k in key]
+
 def decrypt(key, ciphertext):
     round_keys = expand_key(key) # Remember to start from the last round key and work backwards through them when decrypting
 
@@ -155,26 +158,35 @@ def decrypt(key, ciphertext):
     cipher_matrix = bytes2matrix(ciphertext)
 
     # Initial add round key step
-    init_key = round_keys[-1]
-    round_mtr = add_round_key(init_key)
+    init_key = bytes2matrix_key(round_keys[-1])
+    round_mtr = add_round_key(cipher_matrix, init_key)
     
-    for k in round_keys[9:0:-1]:
-            round_mtr = inv_shift_rows(round_mtr)
+    for i in round_keys[9:0:-1]:
+            k = bytes2matrix_key(i)
+            inv_shift_rows(round_mtr)
             round_mtr = sub_bytes(round_mtr, sbox=inv_s_box)
             round_mtr = add_round_key(round_mtr, k)
-            round_mtr = inv_mix_columns(round_mtr)
+            inv_mix_columns(round_mtr)
             
+    inv_shift_rows(round_mtr)
+    round_mtr = sub_bytes(round_mtr, sbox=inv_s_box)
+    round_mtr = add_round_key(round_mtr, round_keys[0])
+            
+
+    # for i in range(N_ROUNDS - 1, 0, -1):
+    #     pass # Do round
+
+    # # Run final round (skips the InvMixColumns step)
+
+    # # Convert state matrix to plaintext
     
-            
-
-    for i in range(N_ROUNDS - 1, 0, -1):
-        pass # Do round
-
-    # Run final round (skips the InvMixColumns step)
-
-    # Convert state matrix to plaintext
+    plaintext = ''
+    
+    for i in range(4):
+        for j in range(4):
+            plaintext += chr(round_mtr[i][j])
 
     return plaintext
 
 
-# print(decrypt(key, ciphertext))
+print(decrypt(key, ciphertext))
