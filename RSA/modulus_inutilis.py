@@ -9,5 +9,5 @@ ct = 243251053617903760309941844835411292373350655973075480264001352919865180151
 e = 3
 d = -1
 
-flag = long_to_bytes(gmpy2.iroot(ct,e)[0]) 
+flag = long_to_bytes(gmpy2.iroot(ct,e)[0]) # hàm iroot trong gmpy2 trả về 1 tuple, lấy cái đầu tiên thì là chỉ số 0
 print(flag)
