@@ -14,7 +14,7 @@ def single_byte_xor(input, key):
     except:
         return "Cannot Decode some bytes"
 
-data = "73626960647f6b206821204f21254f7d694f7624662065622127234f726927756d"
+data = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 decoded = unhexlify(data)
 
 print("[-] HEX_DECODE: {}\n".format(decoded))
