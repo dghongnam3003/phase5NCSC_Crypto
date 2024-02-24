@@ -1,9 +1,9 @@
 # Project 1 - Cryptography
 
-Group members:
+## Group members:
 
-Duong Hong Nam 20214967
+- Duong Hong Nam 20214967
 
-Vu Hoang Ngoc 20210646
+- Vu Hoang Ngoc 20210646
 
-Nguyen Duy An 20214943
+- Nguyen Duy An 20214943
